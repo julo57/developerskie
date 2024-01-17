@@ -39,7 +39,6 @@
 	top: 10%;
 	cursor: pointer;
 	outline: none;
-	margin-left: 10px;
 }
 
 .return-button:hover {
@@ -52,18 +51,5 @@
 		padding: 8px 16px;
 		position: static;
 		margin-top: 10px;
-		margin-left: 10px;
-	}
-}
-
-
-
-@media screen and (max-width: 769px) {
-	.return-button {
-		font-size: 14px;
-		padding: 8px 16px;
-		position: static;
-		margin-top: 10px;
-		margin-left: 10px;
 	}
 }

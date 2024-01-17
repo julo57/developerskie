@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from "../api/axios";
 import useAuthContext from "../context/AuthContext";
 import RatingStars from './shop/RatingStars'; // Załóżmy, że masz komponent RatingStars
 import './ShowComment.css'; // Stylizacje podobne do ProductSite
@@ -10,7 +10,7 @@ const ShowComment = () => {
   const { user } = useAuthContext();
 
   useEffect(() => {
-    axios.get('http://techwave-online-shop.wuaze.com/api/comment', { withCredentials: true })
+    axios.get('/api/comment', { withCredentials: true })
       .then(response => {
         if (Array.isArray(response.data)) {
           setComments(response.data);
@@ -30,7 +30,7 @@ const ShowComment = () => {
   // Funkcja do pobierania informacji o produktach
   const fetchProducts = (productIds) => {
     const productPromises = productIds.map(productId => {
-      return axios.get(`https://techwavework.000.pe/api/products/${productId}`)
+      return axios.get(`/api/products/${productId}`)
         .then(response => {
           // Ustaw informacje o produkcie w stanie, używając product_id jako klucza
           setProducts(prevProducts => ({

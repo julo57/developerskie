@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from "../api/axios";
 import useAuthContext from '../context/AuthContext';
 import { Navigate } from 'react-router-dom';
 import { GearSix,List,ClipboardText,ArrowUpLeft,ChatCircle,SignOut,User  } from "phosphor-react";
@@ -38,7 +38,7 @@ const AccountSettings = () => {
       try {
         localStorage.clear();
         const response = await axios.post(
-          'https://techwavetrue.wuaze.com/api/delete-account',
+          '/api/delete-account',
           {},
           { withCredentials: true }
         );
@@ -74,7 +74,7 @@ const AccountSettings = () => {
       }
 
       const response = await axios.post(
-        'https://techwavetrue.wuaze.com/api/change-password',
+        '/api/change-password',
         {
           current_password: oldPassword,
           new_password: newPassword,
@@ -100,7 +100,7 @@ const AccountSettings = () => {
       }
 
       const response = await axios.post(
-        'https://techwavework.000.pe/api/change-email',
+        '/api/change-email',
         {
           current_email: oldEmail,
           new_email: newEmail,

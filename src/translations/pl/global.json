@@ -32,7 +32,7 @@
     "placeholder": "Email użytkownika",
     "placeholder2": "Hasło",
     "anchor": "Zapomniałeś hasła?",
-    "anchor2": "Zrób to teraz!",
+    "anchor2": "Zrób teraz!",
     "anchor3": "Pamiętasz hasło?",
     "div":"Nie masz jeszcze konta ?"
   },
@@ -183,8 +183,8 @@
     "button": "Szukaj"
 },
 "filter": {
-    "Pricelow": "Minimalna cena",
-    "Pricehigh": "Maksymalna cena",
+    "Pricelow": "Sortuj według ceny (Rosnąco)",
+    "Pricehigh": "Sortuj według ceny (Malejąco)",
     "RAMlow": "Sortuj według RAM (Rosnąco)",
     "RAMhigh": "Sortuj według RAM (Malejąco)",
     "Storagehigh": "Sortuj według pojemności (Malejąco)",
@@ -300,7 +300,7 @@
 
     "guest":
      {
-        "continueWithoutLoggingIn": "Kontynuuj bez zalogowania",
+        "continueWithoutLoggingIn": "Kontynuuj bez zalogowania sie",
         "info": "info",
         "continueAsGuest": "Kontynuuj "
 
@@ -320,75 +320,19 @@
       "Microphone": "Mikrofon",
       "NoiseCancelling": "Redukcja szumów",
       "HeadphoneType": "Typ słuchawek",
-     
-      "NoSpecifications": "Brak specyfikacji dla tej kategorii.",
-      
       "PrintingTechnology": "Technologia druku",
-      "Laser": "Laserowa",
-      "Inkjet": "Atramentowa",
       "Interfaces": "Interfejsy",
-      "USB": "USB",
-      "Wireless": "bezprzewodowe",
-      "Ethernet": "Ethernet",
-      "PrintSpeed": "Szybkość druku",
-      "EnterPrintSpeed": "Wpisz szybkość druku",
+      "PrintSpeed": "Prędkość druku",
       "DuplexPrinting": "Druk dwustronny",
-      "Available": "Dostępny",
-      "NotAvailable": "Niedostępny",
-      "Term": "Termiczna",
-      "TrueWireless": "Prawdziwie bezprzewodowe",
-      "Wired": "Przewodowe",
-      "BuiltIn": "Wbudowany",
-      "None": "Brak",
-      "Active": "Aktywna",
-      "Passive": "Pasywna",
-      "InEar": "Dokanałowe",
-      "OnEar": "Nauszne"
+      "NoSpecifications": "Brak specyfikacji dla tej kategorii."
     },
 
       "chat": {
         "hi":"Cześć, jestem Botem TechWave. Nazywam się Koksuś. Jak mogę Ci dzisiaj pomóc?",
-        "apple_expert": "Ekspert Apple",
-        "apple_expert_message": "Jak mogę pomóc w kwestiach produktów Apple?",
+        "apple_expert": "Spytaj eksperta Apple",
+        "apple_expert_message": "Chcę porozmawiać z ekspertem Apple.",
         "delivery_status": "Status dostawy",
-        "delivery_status_message": "Sprawdź tutaj status swojej dostawy.",
-        "payment_refunds": "Zwroty płatności",
-        "payment_refunds_message": "Zwroty płatności ",
-        "payment_complaints": "Reklamacje płatności",
-        "payment_complaints_message": " Reklamacje płatności.",
-        "payment": "Płatność",
-        "payment_message": "Płatność",
-        "gift_voucher_teachers": "Bon dla nauczycieli",
-        "gift_voucher_teachers_message": "Bon dla nauczycieli"
-      },
-
-      "bot":{
-        "defaultResponse": "Przepraszam nie rozumiem spróbuj jeszcze raz ",
-        "Witam": "Cześć, jestem Botem TechWave. Nazywam się Koksuś. Jak mogę Ci dzisiaj pomóc?",
-        "Cześć": "Cześć, jak mogę Ci pomóc?",
-        "Witaj": "Witaj, jak mogę Ci pomóc?",
-        "Pomoc": "W czym mogę Ci pomóc?",
-        "TV": "Szukasz nowego telewizora? Przejdz do zakładki TV i wybierz jakis stosujac nasze filtry .",
-        "Telewizory": "Szukasz nowego telewizora?Przejdz do zakładki TV i wybierz jakis stosujac nasze filtry.",
-        "Laptop": "Potrzebujesz nowego laptopa? Przejdź do zakładki Laptopy i wybierz jakis stosujac nasze filtry.",
-        "Laptopy": "Potrzebujesz nowego laptopa? Przejdź do zakładki Laptopy i wybierz jakis stosujac nasze filtry",
-        "Smartfony": "Interesują Cię smartfony? Przejdz do zakładki Telefony i wybierz jakis stosujac nasze filtry.",
-        "Smartfon": "Interesuje Cię smartfon? Przejdz do zakładki Telefony Niestety nie posiadamy",
-        "Tablety": "Niestety nie posiadamy.",
-        "Tablet": "Niestety nie posiadamy",
-        "Monitor": "Potrzebujesz nowego monitora? Przejdz do zakładki Monitory i wybierz jakis stosujac nasze filtry.  ",
-        "Monitory": "Potrzebujesz nowego monitora? Przejdz do zakładki Monitory i wybierz jakis stosujac nasze filtry.  ",
-        "Newsletter": "Zapisz się do naszego newslettera, aby otrzymywać najnowsze wiadomości i promocje.",
-        "Słuchawki": "Potrzebujesz nowych słuchawek? Przejdz do zakładki Słuchawki i wybierz jakieś stosujac nasze filtry.",
-        "Słuchawka": "Potrzebujesz nowych słuchawek? Przejdz do zakładki Słuchawki i wybierz jakieś stosujac nasze filtry.",
-        "Drukarki": "Potrzebujesz nowej drukarki? Przejdz do zakładki Drukarki i wybierz jakąś stosujac nasze filtry.",
-        "Drukarka": "Potrzebujesz nowej drukarki? Przejdz do zakładki Drukarki i wybierz jakąś stosujac nasze filtry.",
-        "dostawa": "Dostawa jest darmowa dla zamówień powyżej 200 złotych.",
-      
-         "Zwroty płatności ":"Zwrot produktu jest możliwy w ciągu 14 dni od daty otrzymania towaru. Produkt musi być w stanie nienaruszonym, w oryginalnym opakowaniu",
-         "Reklamacje płatności." : "Klient ma prawo do reklamacji w przypadku otrzymania produktu uszkodzonego lub niezgodnego z zamówieniem. Reklamację należy zgłosić w ciągu 14 dni od otrzymania towaru",
-         "Płatność" : "W naszym sklepie akceptujemy płatności kartą kredytową, BLIK iprzelewem bankowym",
-         "Bon dla nauczycieli":"Niestety w naszym sklepie nie mamy laptopów dla nauczycieli."
+        "delivery_status_message": "Jaki jest status mojej dostawy?"
       },
       "PaymentContext":{
         "deliveryMethod": "kurier"

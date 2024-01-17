@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./NewsletterForm.css";
 import { useTranslation } from "react-i18next";
-import axios from "axios";
+import axios from "../api/axios";
 import useAuthContext from "../context/AuthContext";
 
 function NewsletterForm() {
@@ -22,9 +22,9 @@ function NewsletterForm() {
 
     try {
       // Pobierz CSRF cookie
-      await axios.get('https://techwavework.000.pe/sanctum/csrf-cookie');
+      await axios.get('/sanctum/csrf-cookie');
 
-      const response = await axios.post('https://techwavework.000.pe/api/subscribe', {
+      const response = await axios.post('/api/subscribe', {
         email: email,
       }, {
         withCredentials: true,

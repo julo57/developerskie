@@ -9,7 +9,7 @@
   .regulamin-section h2 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: #333;
+    color: #878787;
     cursor: pointer;
     transition: color 0.3s ease;
   }
@@ -17,7 +17,7 @@
   .regulamin-container h1 {
     font-size: 30px;
     margin-bottom: 10px;
-    color: #333; 
+    color: #878787; 
     cursor: default;
   }
 
@@ -25,36 +25,6 @@
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 20px;
-    color: #333; 
-  }
-
-  #dark .regulamin-container h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
     color: #878787; 
-    cursor: default;
   }
 
-
-  #dark .regulamin-container p{
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    color:  #878787; 
-  }
-
-  #dark .regulamin-section h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color:  #878787; 
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-
-  #dark .section-title{
-    color:  #878787; 
-  }
-
-  #dark h1{
-    color:  #878787; 
-  } 

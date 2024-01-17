@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import axios from "../api/axios";
 import "./comparationSite.css";
 import { useTranslation } from "react-i18next";
 
@@ -37,7 +37,7 @@ export const ComparationSite = () => {
     }
     console.log(`Wyszukiwanie: ${searchTerm}, Kategoria: ${Category}`); // Dodaj ten log
     try {
-      const response = await axios.get('https://techwavework.000.pe/api/products', {
+      const response = await axios.get(`/api/products`, {
         params: { search: searchTerm, Category: Category }
       });
       setSearchResults(response.data.length > 0 ? response.data : []);

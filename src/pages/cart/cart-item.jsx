@@ -2,8 +2,6 @@ import React, { useState, useContext } from 'react';
 import { ShopContext } from '../../context/shop-context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faHeart } from '@fortawesome/free-solid-svg-icons';
-import './cart.css';
-
 
 const CartItem = ({ data }) => {
   const { removeFromCart, updateCartItemCount } = useContext(ShopContext);
@@ -20,19 +18,14 @@ const CartItem = ({ data }) => {
   };
 
   const handleManualQuantityChange = (event) => {
-    let newQuantity = Number(event.target.value);
-    // Sprawdź, czy wprowadzona wartość jest nieprawidłowa (np. 0, puste, ujemne)
-    if (!newQuantity || newQuantity < 1) {
-      newQuantity = 1; // Ustaw domyślną ilość na 1
-    }
-    updateCartItemCount(newQuantity, id);
+    updateCartItemCount(Number(event.target.value), id);
   };
 
   return (
     <div className="cart-item">
       <img src={imageUrl} alt={name} className="cart-item-image" />
       <div className="cart-item-details">
-        <h3 className="cart-item-name"  >{name}</h3>
+        <h3 className="cart-item-name">{name}</h3>
         <div className="cart-item-pricing">
           <p className="cart-item-price">{price} zł</p>
           <div className="cart-item-quantity-wrapper">

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../../context/shop-context';
 import { PaymentContext } from '../../context/PaymentContext';
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
+import axios from "../../api/axios";
 import './Summation.css';
 import { useTranslation } from "react-i18next";
 import useAuthContext from "../../context/AuthContext";
@@ -91,7 +91,7 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
     console.log("Order data being sent to server:", orderData);
   
     try {
-      const response = await axios.post('https://techwavework.000.pe/api/orders', orderData, {
+      const response = await axios.post('/api/orders', orderData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -204,7 +204,7 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
             <button className="close-btn" onClick={() => setShowBlikCodeModal(false)}>X</button>
             {showSuccessModal && (
   <div className="success-modal">
-      <p>Dziękujemy za zakup! Zaraz zostaniesz przekierowany na stronę główną.</p>
+    <p>Dziękujemy za zakup! Zaraz zostaniesz przekierowany na stronę główną.</p>
   </div>
 
 )}

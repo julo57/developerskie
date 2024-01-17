@@ -11,14 +11,13 @@ import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import { BsList, BsBoxArrowInRight, BsArrowReturnRight, BsPencil, BsGear, BsBoxArrowLeft } from 'react-icons/bs'; // Import różnych ikon
 import { AiOutlineShopping } from 'react-icons/ai'; // Import ikony paczki
-import "./Profile.css";
 
 const Profile = () => {
   const { user, logout } = useAuthContext();
   const { t } = useTranslation("global");
   const [currentView, setCurrentView] = useState("Order"); // Default view
 
-  const isTabletMid = useMediaQuery({ query: "(max-width: 767px)" });
+  const isTabletMid = useMediaQuery({ query: "(max-width: 768px)" });
   const [open, setOpen] = useState(!isTabletMid);
   const sidebarRef = useRef();
 
@@ -55,32 +54,32 @@ const Profile = () => {
           animate={open ? "open" : "closed"}
           className="w-1/4 flex flex-col items-start justify-start absolute z-10"
         >
-          <div className="sidebar-header">
-      <h1>{t("profile.title")} {user.name}!</h1>
-    </div>
-    {/* Przyciski z większą i grubszą czcionką */}
-    <div className="sidebar-buttons">
-      <button onClick={() => changeView("Order")}>
-        <AiOutlineShopping className="inline mr-2" />
-        {t("profile.button")}
-      </button>
-      <button onClick={() => changeView("Return")}>
-        <BsArrowReturnRight className="inline mr-2" />
-        {t("profile.button2")}
-      </button>
-      <button onClick={() => changeView("ShowComment")}>
-        <BsPencil className="inline mr-2" />
-        {t("profile.button3")}
-      </button>
-      <button onClick={() => changeView("AccountSettings")}>
-        <BsGear className="inline mr-2" />
-        {t("profile.button4")}
-      </button>
-      <button style={{ color: '#ff0000' }} onClick={handleLogout}>
-        <BsBoxArrowLeft className="przycisk inline mr-2" />
-        {t("profile.button5")}
-      </button>
-    </div>
+          <div className="w-full text-3xl font-bold mb-4 mt-5">
+            <h1>{t("profile.title")} {user.name}!</h1>
+          </div>
+          {/* Przyciski z większą i grubszą czcionką */}
+          <div className="w-full p-4" style={{borderRight: '1px solid gray', paddingRight: '10px'}}>
+            <button className="block w-full p-3 mb-4 text-1xl font-semibold text-black-500 rounded hover:border-gray-500 hover:border-2 hover:rounded-lg hover:bg-gray-200" onClick={() => changeView("Order")}>
+              <AiOutlineShopping className="inline mr-2" />
+              {t("profile.button")}
+            </button>
+            <button className="block w-full p-3 mb-4 text-1xl font-semibold text-black-500 rounded hover:border-gray-500 hover:border-2 hover:rounded-lg hover:bg-gray-200" onClick={() => changeView("Return")}>
+              <BsArrowReturnRight className="inline mr-2" />
+              {t("profile.button2")}
+            </button>
+            <button className="block w-full p-3 mb-4 text-1xl font-semibold text-black-500 rounded hover-border-gray-500 hover:border-2 hover:rounded-lg hover:bg-gray-200" onClick={() => changeView("ShowComment")}>
+              <BsPencil className="inline mr-2" />
+              {t("profile.button3")}
+            </button>
+              <button className="block w-full p-3 mb-4 text-1xl font-semibold text-black-500 rounded hover:border-gray-500 hover:border-2 hover:rounded-lg hover:bg-gray-200" onClick={() => changeView("AccountSettings")}>
+                <BsGear className="inline mr-2" />
+                {t("profile.button4")}
+              </button>
+            <button className="block w-full p-3 mb-4 text-1xl font-semibold text-red-600 rounded hover:border-red-500 hover:border-2 hover:rounded-lg hover:bg-red-200" onClick={handleLogout}>
+              <BsBoxArrowLeft className="inline mr-2" />
+              {t("profile.button5")}
+            </button>
+          </div>
         </motion.div>
 
         {/* Przycisk do otwierania/zamykania paska bocznego */}

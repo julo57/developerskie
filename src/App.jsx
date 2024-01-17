@@ -21,7 +21,7 @@ import global_en from './translations/en/global.json';
 import global_pl from './translations/pl/global.json';
 import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
-
+import { Test } from "./pages/test";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword"; 
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
@@ -107,7 +107,7 @@ function App() {
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
-                 
+                  <Route path="/test" element={<Test />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/forgot-password" element={<ForgotPassword />} />
                   <Route path="/password-reset/:token" element={<ResetPassword />} />
@@ -136,7 +136,7 @@ function App() {
             <main>
             <PopUp trigger={timedPopup} setTrigger={setTimedPopup}>
               <img
-                src="src\components\Promocje.png"
+                src="src\assets\Promocje.png"
                 alt="Noworoczne Promocje"
               />
             </PopUp>

@@ -9,36 +9,45 @@ export const AuthProvider = ({ children }) => {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
-  const csrf = () => axios.get('/sanctum/csrf-cookie');
+  const csrf = async() => {
+    await axios.get('/sanctum/csrf-cookie');
+  }
 
   const getUser = async () => {
     try {
+      console.log("Fetching user data");
       const { data } = await axios.get('/api/user');
       setUser(data);
-      // Zapisz dane użytkownika do localStorage
       localStorage.setItem('user', JSON.stringify(data));
     } catch (error) {
+      console.error("Error fetching user data:", error);
       setUser(null);
-      // Wyczyść dane użytkownika z localStorage w przypadku błędu
       localStorage.removeItem('user');
     }
   };
 
   const login = async ({ ...data }) => {
+    console.log("Logging in");
     await csrf();
+    console.log("Logging in csrf");
     setErrors([]);
     try {
+      console.log("Logging in login");
       await axios.post('/login', data);
       await getUser();
       navigate("/profile");
     } catch (e) {
-      if (e.response.status === 422) {
+      console.error("Login error:", e);
+      if (e.response && e.response.status === 422) {
         setErrors(e.response.data.errors);
+      } else {
+        setErrors(["An unexpected error occurred during login"]);
       }
     }
   };
 
   const register = async ({ ...data }) => {
+    console.log("Registering user");
     await csrf();
     setErrors([]);
     try {
@@ -46,23 +55,28 @@ export const AuthProvider = ({ children }) => {
       await getUser();
       navigate("/profile");
     } catch (e) {
-      if (e.response.status === 422) {
+      console.error("Registration error:", e);
+      if (e.response && e.response.status === 422) {
         setErrors(e.response.data.errors);
+      } else {
+        setErrors(["An unexpected error occurred during registration"]);
       }
     }
   };
 
   const logout = () => {
+    console.log("Logging out");
     axios.post('/logout').then(() => {
       setUser(null);
-      // Wyczyść dane użytkownika z localStorage przy wylogowaniu
       localStorage.removeItem('user');
       navigate("/");
+    }).catch(e => {
+      console.error("Logout error:", e);
     });
   };
 
   useEffect(() => {
-    // Sprawdź, czy są zapisane dane użytkownika w localStorage
+    console.log("Checking local storage for user data");
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));

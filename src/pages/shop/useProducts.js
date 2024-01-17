@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from "../../api/axios";
 
 const useProducts = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +22,7 @@ const useProducts = () => {
           }
         }
 
-        const response = await axios.get('https://techwavework.000.pe/api/products');
+        const response = await axios.get('/api/products');
         setProducts(response.data);
 
         const timestamp = new Date().getTime();
