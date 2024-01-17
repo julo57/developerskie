@@ -1,123 +1,136 @@
 .chat-bubble-container {
-	position: fixed;
-	bottom: 70px;
-	right: 20px;
-	z-index: 1000;
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    z-index: 1000;
 }
 
 .chat-bubble-icon {
-	cursor: pointer;
-	background-color: #333;
-	border-radius: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 50px;
-	height: 50px;
+    cursor: pointer;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
 }
 
 .chat-window {
-	background-color: #fff;
-	width: 400px;
-	height: 300px;
-	border-radius: 15px;
-	padding: 15px;
-	display: flex;
-	flex-direction: column;
-	border: solid 5px black;
+    background-color: #fff;
+    width: 80vw; /* Responsive width */
+    max-width: 400px; /* Maximum width */
+    height: 80vh; /* Responsive height */
+    max-height: 600px; /* Maximum height */
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border: solid 5px black;
+    box-sizing: border-box; /* Include padding and border in the width and height */
 }
 
 .chat-header {
-	font-family: "Times New Roman", Times, serif;
-	font-size: 18px;
-	font-weight: bold;
-	background-color: grey;
-	color: black;
-	margin-bottom: 10px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: grey;
+    color: black;
+    margin-bottom: 10px;
 }
 
 .messages {
-	flex-grow: 1;
-	overflow-y: auto;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 .message {
-	font-family: "Times New Roman", Times, serif;
-	font-size: 18px;
-	margin-bottom: 10px;
-	display: flex;
-	align-items: center;
-	border: solid 2px black;
-	border-radius: 40px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    border: solid 2px black;
+    border-radius: 40px;
 }
 
 .bot-message .message-content {
-	background-color: #333;
-	color: white;
-	padding: 10px;
-	border-radius: 20px;
-	display: flex;
-	align-items: center;
-	width: -moz-fit-content;
-	width: fit-content;
-	border: solid 2px black;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    width: -moz-fit-content;
+    width: fit-content;
+    border: solid 2px black;
 }
 
 .user-message {
-	background-color: lightgray;
-	color: black;
-	padding: 10px;
-	border-radius: 20px;
-	width: -moz-fit-content;
-	width: fit-content;
-	align-self: flex-end;
+    background-color: rgb(0, 119, 255); /* Blue color for user messages */
+    color: white;
+    width: -moz-fit-content;
+    width: fit-content;
+    align-self: flex-end;
+    border: solid 2px black;
 }
 
 .message-input {
-	display: flex;
-	margin-top: 10px;
+    display: flex;
+    margin-top: 10px;
 }
 
 .message-input input {
-	flex-grow: 1;
-	border: none;
-	padding: 10px;
-	border-radius: 20px;
-	margin-right: 10px;
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    margin-right: 10px;
 }
 
 .message-input button {
-	padding: 10px 20px;
-	border: none;
-	border-radius: 20px;
-	background-color: #333;
-	color: white;
-	cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
 }
 
 .bot-icon {
-	width: 40px;
-	height: 40px;
-	margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
 }
 
 .message-content {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
+
 .quick-reply-bubble {
-	display: inline-block;
-	padding: 10px;
-	margin: 5px;
-	background-color: #f0f0f0;
-	border-radius: 20px;
-	cursor: pointer;
-	user-select: none;
-  }
-  
-  .quick-reply-bubble:hover {
-	background-color: #e0e0e0;
-  }
-  
-  /* Dodaj więcej stylów według potrzeb */
-  
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.quick-reply-bubble:hover {
+    background-color: #e0e0e0;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 600px) {
+    .chat-bubble-container {
+        bottom: 20px; /* Adjust position for smaller screens */
+        right: 10px;
+    }
+
+    .chat-window {
+        width: 95vw; /* Take up more width on small screens */
+        height: 95vh; /* Take up more height on small screens */
+    }
+}

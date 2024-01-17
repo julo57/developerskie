@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }) => {
     try {
       console.log("Logging in login");
       await axios.post('/login', data);
+      console.log("Logging in dane");
       await getUser();
       navigate("/profile");
     } catch (e) {

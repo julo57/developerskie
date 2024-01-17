@@ -201,8 +201,8 @@
     },
     "filter":
     {
-        "Pricelow": "Sort by Price (Low to High)",
-        "Pricehigh": "Sort by Price (High to Low)",
+        "Pricelow": "Minimal Price",
+        "Pricehigh": "Maximal Price",
         "RAMlow": "Sort by RAM (Low to High)",
         "RAMhigh": "Sort by RAM (High to Low)",
         "Storagehigh": "Sort by Storage (High to Low)",
@@ -323,6 +323,7 @@
 
 
     "product": {
+        
         "Select":"Select",
         "Diagonal": "Diagonal",
         "Matrix": "Matrix",
@@ -340,14 +341,81 @@
         "Interfaces": "Interfaces",
         "PrintSpeed": "Print Speed",
         "DuplexPrinting": "Duplex Printing",
-        "NoSpecifications": "No specifications available for this category."
+        "NoSpecifications": "No specifications available for this category.",
+       
+      
+        "Laser": "Laser",
+        "Inkjet": "Inkjet",
+       
+        "USB": "USB",
+        "Wireless": "Wireless",
+        "Ethernet": "Ethernet",
+        
+        "EnterPrintSpeed": "Enter print speed",
+        
+        "Available": "Available",
+        "NotAvailable": "Not available",
+        "Term": "Thermal",
+
+       
+    "TrueWireless": "True Wireless",
+    "Wired": "Wired",
+ 
+    
+    "BuiltIn": "Built-in",
+    "None": "None",
+    
+    "Active": "Active",
+    "Passive": "Passive",
+   
+    "InEar": "In-Ear",
+    "OnEar": "On-Ear"
       },
 
       "chat": {
         "hi": "Hi, I'm the TechWave ChatBot. My name is Koksuś. How can I assist you today?",
-        "apple_expert": "Spytaj eksperta Apple",
-        "apple_expert_message": "Chcę porozmawiać z ekspertem Apple.",
-        "delivery_status": "Status dostawy",
-        "delivery_status_message": "Jaki jest status mojej dostawy?"
+        "apple_expert": "Apple Expert",
+        "apple_expert_message": "How can I assist you with Apple products?",
+        "delivery_status": "Delivery Status",
+        "delivery_status_message": "Check your delivery status here.",
+        "payment_refunds": "Payment Refunds",
+        "payment_refunds_message": " Payment Refunds .",
+        "payment_complaints": "Payment Complaints",
+        "payment_complaints_message": "Complaints",
+        "payment": "Payment",
+        "payment_message": "Payment",
+        "gift_voucher_teachers": "Gift Voucher for Teachers",
+        "gift_voucher_teachers_message": "Gift Voucher for Teachers"
+      }
+      ,
+      "bot":{
+      
+        "defaultResponse": "I'm sorry I cant understand please try again ",
+      
+            "Hello": "Hi, I'm TechWave Bot. My name is Koksuś. How can I help you today?",
+    "Hi": "Hi, how can I help you?",
+    "Welcome": "Welcome, how can I help you?",
+    "Help": "How can I assist you?",
+    "TVs": "Looking for a new TV? Go to the TV section and choose one using our filters.",
+    "Television": "Looking for a new television? Go to the TV section and choose one using our filters.",
+    "Laptop": "Need a new laptop? Go to the Laptops section and pick one using our filters.",
+    "Laptops": "Need a new laptop? Go to the Laptops section and pick one using our filters.",
+    "Smartphones": "Interested in smartphones? Go to the Phones section and pick one using our filters.",
+    "Smartphone": "Interested in a smartphone? Go to the Phones section. Unfortunately, we do not have any.",
+    "Tablets": "Unfortunately, we do not carry any.",
+    "Tablet": "Unfortunately, we do not have any",
+    "Monitor": "Need a new monitor? Go to the Monitors section and pick one using our filters.",
+    "Monitors": "Need a new monitor? Go to the Monitors section and pick one using our filters.",
+    "Newsletter": "Sign up for our newsletter to receive the latest news and promotions.",
+    "Headphones": "Need new headphones? Go to the Headphones section and pick some using our filters.",
+    "Headphone": "Need new headphones? Go to the Headphones section and pick some using our filters.",
+    "Printers": "Need a new printer? Go to the Printers section and pick one using our filters.",
+    "Printer": "Need a new printer? Go to the Printers section and pick one using our filters.",
+    "Delivery": "Delivery is free for orders over 200 zł.",
+        "Payment Refunds .":"The return of the product is possible within 14 days from the date of receiving the goods.The product must be in an undamaged condition, in its original packaging",
+        "Complaints":"The customer has the right to complain if they receive a damaged product or one that does not correspond to the order. A complaint should be reported within 14 days of receiving the goods.",
+        "Payment" : "In our store you can pay by credit card , online payment or Blik.",
+        "Gift Voucher for Teachers" : "Unfortuneately, we do not offer gift vouchers for teachers."
+
       }
 }

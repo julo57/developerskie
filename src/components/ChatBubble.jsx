@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef} from 'react';
 import { ChatCircleDots } from "phosphor-react";
 import Koksuś from '../assets/products/Koksuś.png';
 import { useTranslation } from "react-i18next";
-import data from '../translations/bot/global.json';
+
 
 import './ChatBubble.css';
 
@@ -38,47 +38,57 @@ const ChatBubble = () => {
   };
 
   const quickReplies = [
-    { label: t("chat.apple_expert"), message: t("chat.apple_expert_message") },
-    { label: t("chat.delivery_status"), message: t("chat.delivery_status_message") },
-    // ...inne przyciski
+    
+    { label: t("chat.payment_refunds"), message: t("chat.payment_refunds_message") },
+    { label: t("chat.payment_complaints"), message: t("chat.payment_complaints_message") },
+    { label: t("chat.payment"), message: t("chat.payment_message") },
+    { label: t("chat.gift_voucher_teachers"), message: t("chat.gift_voucher_teachers_message") },
+    
   ];
-  
   const getBotResponse = (userMessage) => {
-    let response = t("settings.bott"); // Domyślna odpowiedź
+    let responseKey = 'bot.defaultResponse'; // Default response key
+
     let lowerCaseMessage = userMessage.toLowerCase();
-  
-    // Tworzenie tablicy par klucz-wartość i sortowanie według kryteriów
-    const sortedResponses = Object.entries(data.bot).sort((a, b) => {
-      // Sortuj według własnych kryteriów, na przykład długości klucza
-      return b[0].length - a[0].length;
-    });
-  
-    sortedResponses.forEach(([key, value]) => {
-      if (lowerCaseMessage.includes(key.toLowerCase())) {
-        response = t(`bot.${key}`); // Użyj funkcji t do uzyskania tłumaczenia
-        if (key.includes("{name}")) {
-          const userName = userMessage.split(' ').pop();
-          response = response.replace("{name}", userName);
+
+    // Iterating over bot response keys in the current language
+    Object.keys(t('bot', { returnObjects: true })).forEach(key => {
+        if (lowerCaseMessage.includes(key.toLowerCase())) {
+            responseKey = `bot.${key}`;
         }
-      }
     });
-  
-    return response;
+
+    return t(responseKey); // Fetching the response in the current language
+};
+    
+  const messagesEndRef = useRef(null);
+
+  // Function to scroll to the bottom of the chat
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSendMessage = () => {
-    if (message) {
-      const botResponse = getBotResponse(message);
-      setMessages([...messages, { text: message, sender: "user" }, { text: botResponse, sender: "bot" }]);
+  // useEffect to scroll down every time messages change
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+
+  const handleQuickReplyClick = (replyMessage) => {
+    if (typeof replyMessage === 'string') {
+      handleSendMessage(replyMessage);
+    }
+  };
+  
+  const handleSendMessage = (msg = message) => {
+    // Ensure that msg is a string
+    const messageString = typeof msg === 'string' ? msg : '';
+    
+    if (messageString) {
+      const botResponse = getBotResponse(messageString);
+      setMessages([...messages, { text: messageString, sender: "user" }, { text: botResponse, sender: "bot" }]);
       setMessage('');
     }
   };
-
-  const handleQuickReplyClick = (replyMessage) => {
-    setMessage(replyMessage);
-    handleSendMessage();
-  };
-
   return (
     <div className="chat-bubble-container">
       <div className={`chat-bubble-icon ${isOpen ? 'open' : ''}`} onClick={toggleChatWindow}>
@@ -88,17 +98,19 @@ const ChatBubble = () => {
         <div className="chat-window">
           <div className="chat-header">Czat z Botem Koksuś</div>
           <div className="messages">
-            {messages.map((msg, index) => (
-              <div key={index} className={`message ${msg.sender}`}>
-                {msg.sender === "bot" && (
-                  <div className="message-content">
-                    <img src={Koksuś} alt="Koksuś" className="bot-icon" />
-                    <p>{msg.text}</p>
-                  </div>
-                )}
-                {msg.sender === "user" && <p>{msg.text}</p>}
-              </div>
-            ))}
+          {messages.map((msg, index) => (
+  <div key={index} className={`message ${msg.sender === "user" ? "user-message" : ""}`}>
+          {msg.sender === "bot" && (
+            <div className="message-content">
+              <img src={Koksuś} alt="Koksuś" className="bot-icon" />
+              <p>{msg.text}</p>
+            </div>
+          )}
+          {msg.sender === "user" && <p>{msg.text}</p>}
+          <div ref={messagesEndRef} />
+        </div>
+      ))}
+            
           </div>
           <div className="message-input">
             <input 
@@ -108,7 +120,8 @@ const ChatBubble = () => {
               placeholder="Wpisz wiadomość..." 
               onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
             />
-            <button onClick={handleSendMessage}>Wyślij</button>
+         <button onClick={() => handleSendMessage(message)}>Wyślij</button>
+
           </div>
           <div className="quick-reply-container">
             {quickReplies.map((reply, index) => (
