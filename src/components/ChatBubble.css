@@ -73,11 +73,24 @@
     width: fit-content;
     align-self: flex-end;
     border: solid 2px black;
+    padding: 5px;
+}
+
+#dark .user-message {
+    background-color: rgb(44, 46, 47); /* Blue color for user messages */
+    color: white;
+    width: -moz-fit-content;
+    width: fit-content;
+    align-self: flex-end;
+    border: solid 2px black;
+    padding: 8px;
 }
 
 .message-input {
     display: flex;
     margin-top: 10px;
+    border: solid 2px black;
+    border-radius: 25px;    
 }
 
 .message-input input {
