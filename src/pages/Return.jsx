@@ -29,7 +29,7 @@ const Returns = () => {
             <ul>
                 {returns.map(returnItem => (
                     <li key={returnItem.id} className="order-item"> {/* Używamy tej samej klasy co w Orders */}
-                        {returnItem.productname} - {returnItem.Price} zł
+                        {returnItem.productname} - {returnItem.Price} zł - {returnItem.quantity} szt.
                         {/* Możesz dodać więcej informacji o zwrocie tutaj */}
                     </li>
                 ))}

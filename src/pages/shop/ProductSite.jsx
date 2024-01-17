@@ -88,18 +88,19 @@ function ProductSite() {
   
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsSubmitting(true);
-
+  
     if (!productId) {
       console.error("ProductId is undefined");
       return;
     }
-
-    if (!comment.trim()) {
-      alert('Komentarz nie może być pusty.');
+  
+    if (!rating || !comment.trim()) {
+      alert('Ocena i komentarz nie mogą być puste.');
       return;
     }
-
+  
+    setIsSubmitting(true); // Przeniesienie ustawienia flagi tutaj
+  
     try {
       await axios.get('/sanctum/csrf-cookie');
       const response = await axios.post(`/api/products/${productId}/comments`, {
@@ -125,8 +126,9 @@ function ProductSite() {
       } else {
         console.error("Error submitting comment:", error);
       }
+    } finally {
+      setIsSubmitting(false); // Zawsze wyłączaj animację, niezależnie od wyniku
     }
-    setIsSubmitting(false);
   };
 
   if (!product) {
@@ -165,25 +167,78 @@ function ProductSite() {
             <p><strong>{t("product.Screen")}: {product.Screen}Hz</strong></p>
             <p><strong>{t("product.Processor")}: {product.Processor}</strong></p>
             <p><strong>{t("product.RAM")}: {product.RAM}GB</strong></p>
-            <p><strong>{t("product.Storage")}: {product.Storage}GB</strong></p>
+            <p><strong>{t("product.Storage")}: {product.storage}GB</strong></p>
           </>
         );
-      case 'Headphones':
-        return (
-          <>
-            <p><strong>{t("product.Connection")}: {product.connection}</strong></p>
-            <p><strong>{t("product.Microphone")}: {product.microphone}</strong></p>
-            <p><strong>{t("product.NoiseCancelling")}: {product.noisecancelling}</strong></p>
-            <p><strong>{t("product.HeadphoneType")}: {product.headphonetype}</strong></p>
-          </>
-        );
+        case 'Headphones':
+          return (
+            <>
+              <p><strong>{t("product.Connection")}: 
+                {
+                  product.connection === 'True Wireless' ? t("product.TrueWireless") :
+                  product.connection === 'Przewodowe' ? t("product.Wired") :
+                  product.connection === 'Bezprzewodowe' ? t("product.Wireless") :
+                  product.connection // Domyślnie
+                }
+              </strong></p>
+              <p><strong>{t("product.Microphone")}: 
+                {
+                  product.microphone === 'Posiada' ? t("product.BuiltIn") :
+                  product.microphone === 'None' ? t("product.None") :
+                  product.microphone // Domyślnie
+                }
+              </strong></p>
+              <p><strong>{t("product.NoiseCancelling")}: 
+                {
+                  product.noisecancelling === 'Aktywna' ? t("product.Active") :
+                  product.noisecancelling === 'Pasywna' ? t("product.Passive") :
+                  product.noisecancelling === 'Nie' ? t("product.None") :
+                  product.noisecancelling // Domyślnie
+                }
+              </strong></p>
+              <p><strong>{t("product.HeadphoneType")}: 
+                {
+                  product.headphonetype === 'Dokanałowe' ? t("product.InEar") :
+                  product.headphonetype === 'Nauszne' ? t("product.OnEar") :
+                  product.headphonetype // Domyślnie
+                }
+              </strong></p>
+            </>
+          );
       case 'Printer':
         return (
           <>
-            <p><strong>{t("product.PrintingTechnology")}: {product.Printingtechnology}</strong></p>
-            <p><strong>{t("product.Interfaces")}: {product.Interfaces}</strong></p>
+            <p>
+            <strong>{t("product.PrintingTechnology")}: 
+              {
+                product.Printingtechnology === 'Laserowa' ? t("product.Laser") :
+                product.Printingtechnology === 'Atramentowa' ? t("product.Inkjet") :
+                product.Printingtechnology === 'Termiczna' ? t("product.Term") :
+                product.Printingtechnology // Domyślnie, jeśli nie znajduje się w powyższych kategoriach
+              }
+            </strong>
+            </p>
+            <p>
+              <strong>{t("product.Interfaces")}: 
+                {
+                  product.Interfaces === 'USB' ? t("product.USB") :
+                  product.Interfaces === 'USB, Wi-Fi' ? t("USB, Wi-Fi") :
+                  product.Interfaces === 'USB, Wi-Fi, LAN' ? t("USB, Wi-Fi, LAN") :
+                  product.Interfaces === 'USB, Wi-Fi, Air' ? t("USB, Wi-Fi, Air") :
+                  product.Interfaces
+                }
+              </strong>
+            </p>
             <p><strong>{t("product.PrintSpeed")}: {product.Printspeed}</strong></p>
-            <p><strong>{t("product.DuplexPrinting")}: {product.Duplexprinting}</strong></p>
+            <p>
+            <strong>{t("product.DuplexPrinting")}: 
+              {
+                product.Duplexprinting === 'Automatyczny' ? t("product.Automatic") :
+                product.Duplexprinting === 'Brak' ? t("product.NotAvailable") :
+                product.Duplexprinting
+              }
+            </strong>
+          </p>
           </>
         );
       default:
@@ -250,9 +305,15 @@ function ProductSite() {
               <textarea id="comment" value={comment} onChange={(e) => setComment(e.target.value)} />
             </div>
             <button type="submit" className={`submit-button ${isSubmitting ? 'loading' : ''}`} disabled={isSubmitting}>
-              Wyślij ocenę i komentarz
-              {isSubmitting && <FontAwesomeIcon icon={faSpinner} spin />}
-            </button>
+            Wyślij ocenę i komentarz
+            {isSubmitting && (
+              <div className="loading-icon">
+                <div className="pulse-dot"></div>
+                <div className="pulse-dot"></div>
+                <div className="pulse-dot"></div>
+              </div>
+            )}
+          </button>
           </form>
         ) : (
           <div className="comment-form disabled">
@@ -262,7 +323,7 @@ function ProductSite() {
       </div>
 
       <div className="related-products">
-        <div className="products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-10">
+        <div className="products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-8">
           {relatedProducts.map(product => (
             <Product key={product.id} data={product} />
           ))}

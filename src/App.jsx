@@ -19,6 +19,7 @@ import { ComparationSite } from "./pages/ComparationSite";
 
 import global_en from './translations/en/global.json';
 import global_pl from './translations/pl/global.json';
+import promocje from './assets/products/Promocje.png';
 import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
 import { Test } from "./pages/test";
@@ -135,10 +136,11 @@ function App() {
             </Router>
             <main>
             <PopUp trigger={timedPopup} setTrigger={setTimedPopup}>
-              <img
-                src="src\assets\Promocje.png"
+            <img src={promocje} alt="Promocje" />
+              {/* <img
+                src="src\assets\products\Promocje.png"
                 alt="Noworoczne Promocje"
-              />
+              /> */}
             </PopUp>
             </main>
           </div>

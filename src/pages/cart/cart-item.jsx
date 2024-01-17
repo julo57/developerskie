@@ -18,7 +18,12 @@ const CartItem = ({ data }) => {
   };
 
   const handleManualQuantityChange = (event) => {
-    updateCartItemCount(Number(event.target.value), id);
+    let newQuantity = Number(event.target.value);
+    // Sprawdź, czy wprowadzona wartość jest nieprawidłowa (np. 0, puste, ujemne)
+    if (!newQuantity || newQuantity < 1) {
+      newQuantity = 1; // Ustaw domyślną ilość na 1
+    }
+    updateCartItemCount(newQuantity, id);
   };
 
   return (
