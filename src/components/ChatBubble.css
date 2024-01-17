@@ -73,7 +73,7 @@
     width: fit-content;
     align-self: flex-end;
     border: solid 2px black;
-    padding: 5px;
+    padding: 8px;
 }
 
 #dark .user-message {

@@ -24,6 +24,21 @@
 @media (max-width: 768px) {
 	.shop {
 		padding: 16px;
+
+	}
+}
+
+@media (max-width: 680px) {
+	.shop {
+		padding: 16px;
+		margin-bottom: 100px;
+	}
+}
+
+@media (max-width: 426px) {
+	.shop {
+		padding: 16px;
+		margin-bottom: 90px;
 	}
 }
 
