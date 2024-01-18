@@ -424,5 +424,12 @@
         "Payment" : "In our store you can pay by credit card , online payment or Blik.",
         "Gift Voucher for Teachers" : "Unfortuneately, we do not offer gift vouchers for teachers."
 
+      },
+      "ProductSite":{
+        "dodaj":"Add to cart",
+        "ocena":"Rating:",
+        "komentarz":"Comment:",
+        "wyslij_ocene":"Send rating and comment",
+        "zaloguj_sie":"Log in to add your opinion and comment."
       }
 }

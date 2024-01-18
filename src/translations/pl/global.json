@@ -394,5 +394,13 @@
       },
       "PaymentContext":{
         "deliveryMethod": "kurier"
+      },
+      "ProductSite":{
+        "dodaj":"Dodaj do koszyka",
+        "ocena":"Ocena:",
+        "komentarz":"Komentarz:",
+        "wyslij_ocene":"Wyślij ocenę i komentarz",
+        "zaloguj_sie":"Zaloguj się, aby dodać opinię i komentarz."
       }
+
 }

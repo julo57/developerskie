@@ -104,7 +104,6 @@ function ProductSite() {
     try {
       await axios.get('/sanctum/csrf-cookie');
       const response = await axios.post(`/api/products/${productId}/comments`, {
-        rating,
         content: comment,
       }, {
         headers: {
@@ -263,7 +262,7 @@ function ProductSite() {
             <p className="product-price">{product.price} zł</p>
             <button className="btn-add-to-cart" onClick={handleAddToCart} disabled={isLoading || isSubmitting}>
               {isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : <FontAwesomeIcon icon={faShoppingCart} />}
-              Dodaj do koszyka
+              {t("ProductSite.dodaj")}
             </button>
           </div>
         </div>
@@ -290,7 +289,7 @@ function ProductSite() {
         {user ? (
           <form className="comment-form" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="rating">Ocena:</label>
+              <label htmlFor="rating">{t("ProductSite.ocena")}</label>
               <select id="rating" value={rating} onChange={(e) => setRating(Number(e.target.value))}>
                 <option value="0">0</option>
                 <option value="1">1</option>
@@ -301,11 +300,11 @@ function ProductSite() {
               </select>
             </div>
             <div>
-              <label htmlFor="comment">Komentarz:</label>
+              <label htmlFor="comment">{t("ProductSite.komentarz")}:</label>
               <textarea id="comment" value={comment} onChange={(e) => setComment(e.target.value)} />
             </div>
             <button type="submit" className={`submit-button ${isSubmitting ? 'loading' : ''}`} disabled={isSubmitting}>
-            Wyślij ocenę i komentarz
+            {t("ProductSite.wyslij_ocene")}
             {isSubmitting && (
               <div className="loading-icon">
                 <div className="pulse-dot"></div>
@@ -317,7 +316,7 @@ function ProductSite() {
           </form>
         ) : (
           <div className="comment-form disabled">
-            <div className="disabled-message">Zaloguj się, aby dodać opinię i komentarz.</div>
+            <div className="disabled-message">{t("ProductSite.zaloguj_sie")}</div>
           </div>
         )}
       </div>
