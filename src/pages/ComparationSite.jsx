@@ -194,7 +194,7 @@ export const ComparationSite = () => {
           </div>
           {productLeft && renderProductSpecs(productLeft)}
         </div>
-        <table className="table-comparison">
+        <table className="table-comparison"> 
         <thead>
           <tr>
             <th className="specyfikacja">{t("Comparsion.specyfikacja")}</th>
