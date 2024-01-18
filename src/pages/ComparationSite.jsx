@@ -20,6 +20,7 @@ export const ComparationSite = () => {
   const [searchResultsRight, setSearchResultsRight] = useState([]);
 
   const [Category, setCategory] = useState("");
+  
 
   // Funkcja do pobierania szczegółów produktu
   const fetchProductDetails = async (side, searchTerm) => {
@@ -58,7 +59,7 @@ export const ComparationSite = () => {
   
     return (
       <>
-        <p><strong>Zaznaczyłeś:</strong> {product.name}</p>
+        <p><strong>{t("Comparsion.zaznaczyles")}</strong> {product.name}</p>
       </>
     );
   };
@@ -88,13 +89,13 @@ export const ComparationSite = () => {
   // Funkcja renderująca wybór kategorii
   const renderCategorySelection = () => (
     <select onChange={handleCategoryChange}>
-      <option value="">Select Category</option>
-      <option value="Phone">Phone</option>
-      <option value="Laptop">Laptop</option>
-      <option value="TV">TV</option>
-      <option value="Headphones">Headphones</option>
-      <option value="Monitor">Monitor</option>
-      <option value="Printers">Printers</option>
+      <option value="">{t("Comparsion.wybierz")}</option>
+      <option value="Phone">{t("Comparsion.telefony")}</option>
+      <option value="Laptop">{t("Comparsion.laptopy")}</option>
+      <option value="TV">{t("Comparsion.telewizory")}</option>
+      <option value="Headphones">{t("Comparsion.sluchawki")}</option>
+      <option value="Monitor">{t("Comparsion.drukarki")}</option>
+      <option value="Printers">{t("Comparsion.monitory")}</option>
       {/* Dodaj więcej kategorii tutaj */}
     </select>
   );
@@ -161,7 +162,7 @@ export const ComparationSite = () => {
         })}
       </>
     );
-  };
+  }; 
   
   return (
     <div className="comparation-site-container">
@@ -176,13 +177,13 @@ export const ComparationSite = () => {
           <input
             type="text"
             value={searchTermLeft}
-            placeholder="Wyszukaj produkt"
+            placeholder={t("Comparsion.wyszukaj")}
             onChange={(e) => setSearchTermLeft(e.target.value)}
           />
           <button onClick={() => fetchProductDetails('left', searchTermLeft)}>
-            Szukaj
+            {t("Comparsion.szukaj")}
           </button>
-          {isLoadingLeft && <p>Loading...</p>}
+          {isLoadingLeft && <p>{t("Comparsion.ladowanie")}</p>}
           {errorLeft && <p>{errorLeft}</p>}
           <div>
             {searchResultsLeft.map((product) => (
@@ -193,12 +194,12 @@ export const ComparationSite = () => {
           </div>
           {productLeft && renderProductSpecs(productLeft)}
         </div>
-        <table className="table-comparison">
+        <table className="table-comparison"> 
         <thead>
           <tr>
-            <th className="specyfikacja">Specyfikacja</th>
-            <th>{productLeft ? productLeft.name : "Lewy Produkt"}</th>
-            <th>{productRight ? productRight.name : "Prawy Produkt"}</th>
+            <th className="specyfikacja">{t("Comparsion.specyfikacja")}</th>
+            <th>{productLeft ? productLeft.name : t("Comparsion.lewy")}</th>
+            <th>{productRight ? productRight.name : t("Comparsion.prawy")}</th>
           </tr>
         </thead>
         <tbody>
@@ -211,11 +212,11 @@ export const ComparationSite = () => {
           <input
             type="text"
             value={searchTermRight}
-            placeholder="Wyszukaj produkt"
+            placeholder= {t("Comparsion.wyszukaj")}
             onChange={(e) => setSearchTermRight(e.target.value)}
           />
           <button onClick={() => fetchProductDetails('right', searchTermRight)}>
-            Szukaj
+          {t("Comparsion.szukaj")}
           </button>
           {isLoadingRight && <p>Loading...</p>}
           {errorRight && <p>{errorRight}</p>}

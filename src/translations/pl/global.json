@@ -319,10 +319,9 @@
       "Connection": "Połączenie",
       "Microphone": "Mikrofon",
       "NoiseCancelling": "Redukcja szumów",
-      "HeadphoneType": "Typ słuchawek",
+      "HeadphoneType": "Typ słuchawek", 
       "Automatic": "Automatyczna",
 
-     
       "NoSpecifications": "Brak specyfikacji dla tej kategorii.",
       
       "PrintingTechnology": "Technologia druku",
@@ -403,6 +402,22 @@
         "komentarz":"Komentarz:",
         "wyslij_ocene":"Wyślij ocenę i komentarz",
         "zaloguj_sie":"Zaloguj się, aby dodać opinię i komentarz."
+      },
+      "Comparsion":{
+        "zaznaczyles":"Zaznaczyłeś:",
+        "wybierz":"Wybierz kategorie",
+        "telefony":"Telefony",
+        "laptopy":"Laptopy",
+        "telewizory":"Telewizory",
+        "sluchawki":"Słuchawki",
+        "drukarki":"Drukarki",
+        "monitory":"Monitory",
+        "szukaj":"Szukaj",
+        "wyszukaj":"Wyszukaj produkt",
+        "specyfikacja":"Specyfikacja",
+        "lewy":"Lewy produkt",
+        "prawy":"Prawy produkt",
+        "ladowanie":"Ładowanie..."
       }
 
 }

@@ -342,10 +342,10 @@
         "PrintSpeed": "Print Speed",
         "DuplexPrinting": "Duplex Printing",
         "NoSpecifications": "No specifications available for this category.",
-       
         "Automatic": "Automatic",
+      
         "Laser": "Laser",
-        "Inkjet": "Inkjet",
+        "Inkjet": "Inkjet", 
        
         "USB": "USB",
         "Wireless": "Wireless",
@@ -357,7 +357,7 @@
         "NotAvailable": "Not available",
         "Term": "Thermal",
 
-       
+        
     "TrueWireless": "True Wireless",
     "Wired": "Wired",
  
@@ -431,5 +431,25 @@
         "komentarz":"Comment:",
         "wyslij_ocene":"Send rating and comment",
         "zaloguj_sie":"Log in to add your opinion and comment."
+      },
+
+      "Comparsion":{
+        "zaznaczyles":"You have selected:",
+        "wybierz":"Select categories",
+        "telefony":"Phones",
+        "laptopy":"Laptops",
+        "telewizory":"TVs",
+        "sluchawki":"Headphones",
+        "drukarki":"Printers",
+        "monitory":"Monitors",
+        "szukaj":"Search",
+        "wyszukaj":"Search for product",
+        "specyfikacja":"Specification",
+        "lewy":"Left product",
+        "prawy":"Right product",
+        "ladowanie":"Loading..."
+        
       }
+
+
 }
