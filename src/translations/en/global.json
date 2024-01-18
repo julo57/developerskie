@@ -370,7 +370,10 @@
    
     "InEar": "In-Ear",
     "OnEar": "On-Ear"
-      },
+    
+
+
+},
 
       "chat": {
         "hi": "Hi, I'm the TechWave ChatBot. My name is Koksuś. How can I assist you today?",
@@ -401,7 +404,11 @@
     "Laptop": "Need a new laptop? Go to the Laptops section and pick one using our filters.",
     "Laptops": "Need a new laptop? Go to the Laptops section and pick one using our filters.",
     "Smartphones": "Interested in smartphones? Go to the Phones section and pick one using our filters.",
-    "Smartphone": "Interested in a smartphone? Go to the Phones section. Unfortunately, we do not have any.",
+    "Smartphone": "Interested in smartphones? Go to the Phones section and pick one using our filters.",
+    "Phone": "Interested in a smartphone? Go to the Phones section.",
+    "Phones": "Interested in smartphones? Go to the Phones section and pick one using our filters.",
+    "Mobile phone": "Interested in smartphones? Go to the Phones section and pick one using our filters.",
+    "Mobile phones": "Interested in smartphones? Go to the Phones section and pick one using our filters.",
     "Tablets": "Unfortunately, we do not carry any.",
     "Tablet": "Unfortunately, we do not have any",
     "Monitor": "Need a new monitor? Go to the Monitors section and pick one using our filters.",
