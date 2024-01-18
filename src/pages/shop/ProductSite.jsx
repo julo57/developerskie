@@ -104,6 +104,7 @@ function ProductSite() {
     try {
       await axios.get('/sanctum/csrf-cookie');
       const response = await axios.post(`/api/products/${productId}/comments`, {
+        rating,
         content: comment,
       }, {
         headers: {
