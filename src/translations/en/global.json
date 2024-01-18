@@ -345,7 +345,7 @@
         "Automatic": "Automatic",
       
         "Laser": "Laser",
-        "Inkjet": "Inkjet",
+        "Inkjet": "Inkjet", 
        
         "USB": "USB",
         "Wireless": "Wireless",
@@ -357,7 +357,7 @@
         "NotAvailable": "Not available",
         "Term": "Thermal",
 
-       
+        
     "TrueWireless": "True Wireless",
     "Wired": "Wired",
  

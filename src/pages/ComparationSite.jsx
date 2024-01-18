@@ -162,7 +162,7 @@ export const ComparationSite = () => {
         })}
       </>
     );
-  };
+  }; 
   
   return (
     <div className="comparation-site-container">
