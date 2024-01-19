@@ -64,12 +64,15 @@
 	padding: 10px;
 	transition: .3s ease-in;
 	cursor: pointer;
-	align-items: center;
+	text-align: center;
+	
 }
 
 .product img {
 	height: 150px;
 	transition: transform .3s ease-in;
+	margin: 0 auto; /* Ustawia marginesy poziome na auto, co wyśrodkuje obrazek horyzontalnie */
+    display: block; 
 }
 
 .product:hover img {

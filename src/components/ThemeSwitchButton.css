@@ -1,53 +1,60 @@
 /* ThemeSwitchButton.css */
 .theme-switch-button {
-    position: relative;
-    width: 60px;
-    height: 30px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    background: linear-gradient(to right, #333 50%, #fff 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
-  }
-  
-  .theme-switch-button.dark {
-    background-position: left bottom;
-  }
-  
-  .theme-switch-button .ball {
-    position: absolute;
-    width: 60px;
-    height: 30px;
-    border-radius: 15px;
-    overflow: hidden;
-  }
-  
-  .theme-switch-button .moon, .theme-switch-button .sun {
-    width: 60px;
-    height: 30px;
-    position: absolute;
-    transition: transform 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .theme-switch-button.dark .moon {
-    transform: translateX(0);
-  }
-  
-  .theme-switch-button.dark .sun {
-    transform: translateX(100%);
-  }
-  
-  .theme-switch-button .moon {
-    font-size: 20px;
-  }
-  
-  .theme-switch-button .sun {
-    font-size: 20px;
-  }
-  
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  background: linear-gradient(to right, #333 50%, #fff 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.theme-switch-button.dark {
+  background-position: left bottom;
+}
+
+.theme-switch-button .ball {
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.theme-switch-button .moon,
+.theme-switch-button .sun {
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  transition: transform 0.2s, opacity 0.2s; /* Dodaj opacity transition */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-switch-button.dark .moon {
+  transform: translateX(0);
+  opacity: 1; /* Domyślnie księżyc jest widoczny w trybie ciemnym */
+}
+
+.theme-switch-button.dark .sun {
+  transform: translateX(100%);
+  opacity: 1; /* Domyślnie słońce jest widoczne w trybie ciemnym */
+}
+
+.theme-switch-button .moon {
+  font-size: 20px;
+}
+
+.theme-switch-button .sun {
+  font-size: 20px;
+}
+
+/* Ukryj księżyc w trybie jasnym */
+.theme-switch-button:not(.dark) .moon {
+  opacity: 0;
+}
