@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from "../../api/axios";
+import axios from 'axios';
 
 const useProducts = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +22,7 @@ const useProducts = () => {
           }
         }
 
-        const response = await axios.get('/api/products');
+        const response = await axios.get('http://localhost:8000/api/products');
         setProducts(response.data);
 
         const timestamp = new Date().getTime();

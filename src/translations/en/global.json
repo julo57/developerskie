@@ -259,6 +259,7 @@
         "placeholder3": "City",
         "placeholder4": "Postal Code e.g. 46-113",
         "placeholder5": "Do you have a promo code?",
+        "placeholder6": "phone number",
 
         "label": "I have read and agree to the Terms and Conditions",
         "label2": "I agree to receive the newsletter",
@@ -306,6 +307,8 @@
         "afterNewsletterDiscount": "After Newsletter Discount",
         "discount": "Discount",
         "purchaseAndPay": "Purchase and Pay",
+        "phone": "phone number",
+        
 
         "nip": "NIP",
       "companyName": "Company name"
@@ -449,7 +452,29 @@
         "prawy":"Right product",
         "ladowanie":"Loading..."
         
+      },
+
+      "error": {
+        "invalid_credentials": "Invalid credentials, please try again.",
+        "email_already_in_use": "This email is already in use.",
+        "required_field": "This field is required.",
+        "password_min_length": "Password must be at least 8 characters long.",
+        "name_required": "Name is required.",
+        "street_required": "Street is required.",
+        "city_required": "City is required.",
+        "zip_required": "ZIP code is required.",
+        "terms_required": "You must agree to the terms and conditions.",
+        "phone_format": "Phone number must be 9 digits.",
+        "zip_format": "ZIP code must be in the format **-***.",
+        "company_name_required": "Company name is required.",
+        "nip_format": "NIP must be exactly 10 digits.",
+        "required": "Email is required.",
+    "pass": "Password is required.",
+    "credentials": "Invalid credentials, please try again.",
+    "name": "Name is required.",
+    "pass2": "Password must be at least 8 characters long.",
+    "pass3": "Passwords must match.",
+    "email":"Email is taken."
+
       }
-
-
 }

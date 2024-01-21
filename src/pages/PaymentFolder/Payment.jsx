@@ -29,6 +29,7 @@ const {t} = useTranslation("global");
     street: '',
     city: '',
     zip: '',
+    phone: '',
   });
 
   // State for validation errors
@@ -123,23 +124,29 @@ const handleCompanyInputChange = (event) => {
   };
   const validateForm = () => {
     const newErrors = {};
-    if (!address.name.trim()) newErrors.name = 'Name is required';
-    if (!address.street.trim()) newErrors.street = 'Street is required';
-    if (!address.city.trim()) newErrors.city = 'City is required';
-    if (!address.zip.trim()) newErrors.zip = 'ZIP code is required';
-    if (!isTermsChecked) newErrors.terms = 'You must agree to the terms and conditions';
-    
-    // Add other validations as needed
-    const zipCodeRegex = /^\d{2}-\d{3}$/;
-    if (!zipCodeRegex.test(address.zip)) newErrors.zip = 'ZIP code must be in the format **-***';
-    if (privateMethod === 'company') {
-      if (!companyDetails.companyName.trim()) {
-        newErrors.companyName = 'Company name is required';
-      }
-      if (!companyDetails.nip.match(/^\d{10}$/)) {
-        newErrors.nip = 'NIP must be exactly 10 digits';
-      }
-    }
+    if (!address.name.trim()) newErrors.name = t("error.name_required");
+if (!address.street.trim()) newErrors.street = t("error.street_required");
+if (!address.city.trim()) newErrors.city = t("error.city_required");
+if (!address.zip.trim()) newErrors.zip = t("error.zip_required");
+if (!isTermsChecked) newErrors.terms = t("error.terms_required");
+
+// Phone number validation
+const phonenumber = /^\d{9}$/;
+if (!phonenumber.test(address.phone)) newErrors.phone = t("error.phone_format");
+
+// ZIP code validation
+const zipCodeRegex = /^\d{2}-\d{3}$/;
+if (!zipCodeRegex.test(address.zip)) newErrors.zip = t("error.zip_format");
+
+// Company details validation
+if (privateMethod === 'company') {
+  if (!companyDetails.companyName.trim()) {
+    newErrors.companyName = t("error.company_name_required");
+  }
+  if (!companyDetails.nip.match(/^\d{10}$/)) {
+    newErrors.nip = t("error.nip_format");
+  }
+}
     setErrors(newErrors);
   return Object.keys(newErrors).length === 0;
   };
@@ -205,6 +212,8 @@ const handleCompanyInputChange = (event) => {
             {errors.city && <p className="error-message">{errors.city}</p>}
             <input type="text" name="zip" placeholder={t("payment.placeholder4")} value={address.zip} onChange={handleAddressChange} className="deliveryinput" />
             {errors.zip && <p className="error-message">{errors.zip}</p>}
+            <input type="text" name="phone" placeholder={t("payment.placeholder6")} value={address.phone} onChange={handleAddressChange} className="deliveryinput" />
+            {errors.phone && <p className="error-message">{errors.phone}</p>}
           </div>
   
           <h2 className="H2">{t("payment.title3")}</h2>

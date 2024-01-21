@@ -11,6 +11,7 @@ const getDefaultPaymentDetails = () => {
       street: '',
       city: '',
       zip: '',
+      phone: '',
     },
     promoCode: '',
     discountRate: 0,

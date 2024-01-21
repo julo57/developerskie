@@ -1,7 +1,7 @@
 // useProduct.js
 
 import { useState, useEffect } from 'react';
-import axios from "../../api/axios";
+import axios from 'axios';
 
 const useProduct = (productId) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,7 +12,7 @@ const useProduct = (productId) => {
     const fetchProduct = async () => {
       try {
         // console.log("fetchProduct")
-        const response = await axios.get(`/api/products/${productId}`);
+        const response = await axios.get(`http://localhost:8000/api/products/${productId}`);
         setProduct(response.data);
       } catch (error) {
         setError(error);

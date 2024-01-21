@@ -6,12 +6,19 @@ import axios from "../../api/axios";
 import './Summation.css';
 import { useTranslation } from "react-i18next";
 import useAuthContext from "../../context/AuthContext";
+import { faShoppingCart, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
 
 
 export const Summation = () => {
   const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
+  const [isSubmitting] = useState(false);
   
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const [blikCode, setBlikCode] = useState('');
   const [showBlikCodeModal, setShowBlikCodeModal] = useState(false);
@@ -63,6 +70,8 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
 
 
   const handleCheckout = async () => {
+    setIsLoading(true);
+
     console.log("Payment details:", paymentDetails);
     console.log("user", user);
     if (user == null) {
@@ -151,6 +160,8 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
         <p>{t("summation.street")}: <span className="detail-label">{paymentDetails.address.street}</span></p>
         <p>{t("summation.city")}: <span className="detail-label">{paymentDetails.address.city}</span></p>
         <p>{t("summation.zipCode")}: <span className="detail-label">{paymentDetails.address.zip}</span></p>
+        <p>{t("summation.phone")}: <span className="detail-label">{paymentDetails.address.phone}</span></p>
+
         <p>{t("summation.deliveryMethod")}:<span className="detail-label">{paymentDetails.deliveryMethod}</span></p>
         <p>{t("summation.paymentMethod")}:<span className="detail-label">{paymentDetails.paymentMethod}</span></p>
         <p>{t("summation.companyName")}:<span className="detail-label"> {companyDetails.companyName}</span></p>
@@ -178,7 +189,7 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
               {item.name} - {item.price} zł x {item.quantity}
             </li>
           ))}
-         </ul>
+         </ul>isa
           <p>{t("summation.deliveryCosts")}: {freeDelivery ? t("summation.free") : `${finalDeliveryCost} zł`}</p>
           <p>{t("summation.totalCost")}: {(totalAmount + finalDeliveryCost).toFixed(2)} zł</p>
           <p>{t("summation.totalCostAfterDiscounts")}: {finalAmountWithDiscounts.toFixed(2)} zł</p>
@@ -188,7 +199,10 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
               ({t("summation.discount")}: 5%)
             </p>
           )}
-          <button onClick={handleCheckout} className="final-purchase-button">{t("summation.purchaseAndPay")}</button>
+          <button onClick={handleCheckout} className="final-purchase-button"  disabled={isLoading || isSubmitting}>{t("summation.purchaseAndPay")}
+          {isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : ""}
+
+          </button>
         </div>
       {showBlikCodeModal && (
         <div className="blik-modal-overlay">

@@ -40,6 +40,20 @@
 	cursor: pointer;
 	transition: background-color .3s ease;
 }
+.final-purchase-button:disabled  {
+	background-color: grey;
+	font-family: "Arial", sans-serif;
+	margin-top: 20px;
+	width: 100%;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-size: 18px;
+	
+	transition: background-color .3s ease;
+	cursor: not-allowed;
+}
 
 .final-purchase-button:hover {
 	background-color: #367c39;

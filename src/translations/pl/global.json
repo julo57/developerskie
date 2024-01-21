@@ -242,6 +242,7 @@
         "placeholder3":"Miasto",  
         "placeholder4":"Kod pocztowy np 46-113",
         "placeholder5":"Masz kod promocyjny?",
+        "placeholder6": "Numer telefonu",
 
         "label": "Zapoznałem/Zapoznałam się z regulaminem",
         "label2": "Zgadzam się na newsletter",
@@ -292,6 +293,7 @@
       "afterNewsletterDiscount": "Po zastosowaniu rabatu za newsletter",
       "discount": "Rabat",
       "purchaseAndPay": "Kupuję i płacę",
+      "phone": "Numer telefonu",
 
       "nip": "NIP",
       "companyName": "Nazwa firmy"
@@ -418,6 +420,31 @@
         "lewy":"Lewy produkt",
         "prawy":"Prawy produkt",
         "ladowanie":"Ładowanie..."
-      }
+      },
+      "error": {
+        "invalid_credentials": "Nieprawidłowe dane logowania, spróbuj ponownie.",
+    "email_already_in_use": "Ten adres email jest już używany.",
+    "required_field": "To pole jest wymagane.",
+    "password_min_length": "Hasło musi mieć co najmniej 8 znaków.",
+    "name_required": "Nazwa jest wymagana.",
+    "street_required": "Ulica jest wymagana.",
+    "city_required": "Miasto jest wymagane.",
+    "zip_required": "Kod pocztowy jest wymagany.",
+    "terms_required": "Musisz zgodzić się na warunki.",
+    "phone_format": "Numer telefonu musi mieć 9 cyfr.",
+    "zip_format": "Kod pocztowy musi być w formacie **-***.",
+    "company_name_required": "Nazwa firmy jest wymagana.",
+    "nip_format": "NIP musi mieć dokładnie 10 cyfr.",
+    "required": "Email jest wymagany.",
+    "pass": "Hasło jest wymagane.",
+    "credentials": "Nieprawidłowe dane logowania, spróbuj ponownie.",
+    "name": "Nazwa jest wymagana.",
+    "pass2": "haslo musi mieć co najmniej 8 znaków.", 
 
+    "pass3": "Hasła muszą być takie same.",
+    
+    "email":"Email jest zajety"
+
+
+      }
 }
